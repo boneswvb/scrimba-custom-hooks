@@ -1,29 +1,15 @@
-import React, {Component} from "react"
+import React from "react"
+import useCounter from './useCounter'
 import './App.css';
-/**
- * Pop Quiz!
- * 
- * Refactor the class component below to use hooks instead
- */
 
-
-class App extends Component {   
-    state = {
-        count: 0
-    }
-    
-    increment = () => {
-        this.setState(prevState => ({count: prevState.count + 1}))
-    }
-    
-    render() { 
-        return (
-            <div>
-                <h1>The count is {this.state.count}</h1>
-                <button onClick={this.increment}>Add 1</button>
-            </div>
-        )
-    }
+const App = () => {   
+  const [number, add] = useCounter()
+  return (
+    <div>
+      <h1>{`The count is ${number}`}</h1>
+      <button onClick={add}>Add 1</button>
+    </div>
+  )
 }
 
 export default App
